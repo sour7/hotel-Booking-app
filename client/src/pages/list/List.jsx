@@ -5,14 +5,15 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
-// import SearchItem from "../../components/searchItem/SearchItem";
+import SearchItem from "../../components/searchItem/SearchItem";
 
 const List = () => {
   const location = useLocation();
-  // const [destination, setDestination] = useState(location.state.destination);
-  // const [date, setDate] = useState(location.state.date);
-  // const [openDate, setOpenDate] = useState(false);
-  // const [options, setOptions] = useState(location.state.options);
+  console.log(location)
+  const [destination, setDestination] = useState(location.state.destination);
+  const [date, setDate] = useState(location.state.date);
+  const [openDate, setOpenDate] = useState(false);
+  const [options, setOptions] = useState(location.state.options);
 
   return (
     <div>
@@ -22,16 +23,16 @@ const List = () => {
         <div className="listWrapper">
           <div className="listSearch">
             <h1 className="lsTitle">Search</h1>
-            {/* <div className="lsItem">
+            <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} type="text" />
-            </div> */}
-            {/* <div className="lsItem">
+              <input  type="text" placeholder={destination} />
+            </div>
+            <div className="lsItem">
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
-                "MM/dd/yyyy"
-              )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                "dd/MM/yyyy"
+              )} to ${format(date[0].endDate, "dd/MM/yyyy")}`}</span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}
@@ -39,8 +40,8 @@ const List = () => {
                   ranges={date}
                 />
               )}
-            </div> */}
-            {/* <div className="lsItem">
+            </div>
+           <div className="lsItem">
               <label>Options</label>
               <div className="lsOptions">
                 <div className="lsOptionItem">
@@ -83,10 +84,10 @@ const List = () => {
                   />
                 </div>
               </div>
-            </div> */}
+            </div> 
             <button>Search</button>
           </div>
-          {/* <div className="listResult">
+          <div className="listResult">
             <SearchItem />
             <SearchItem />
             <SearchItem />
@@ -96,7 +97,7 @@ const List = () => {
             <SearchItem />
             <SearchItem />
             <SearchItem />
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
