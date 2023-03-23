@@ -7,9 +7,9 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 
+
 const List = () => {
   const location = useLocation();
-  console.log(location)
   const [destination, setDestination] = useState(location.state.destination);
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
@@ -25,14 +25,14 @@ const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input  type="text" placeholder={destination} />
+              <input placeholder={destination} type="text" />
             </div>
             <div className="lsItem">
               <label>Check-in Date</label>
               <span onClick={() => setOpenDate(!openDate)}>{`${format(
                 date[0].startDate,
-                "dd/MM/yyyy"
-              )} to ${format(date[0].endDate, "dd/MM/yyyy")}`}</span>
+                "MM/dd/yyyy"
+              )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
               {openDate && (
                 <DateRange
                   onChange={(item) => setDate([item.selection])}
@@ -41,7 +41,7 @@ const List = () => {
                 />
               )}
             </div>
-           <div className="lsItem">
+            <div className="lsItem">
               <label>Options</label>
               <div className="lsOptions">
                 <div className="lsOptionItem">
@@ -84,7 +84,7 @@ const List = () => {
                   />
                 </div>
               </div>
-            </div> 
+            </div>
             <button>Search</button>
           </div>
           <div className="listResult">
