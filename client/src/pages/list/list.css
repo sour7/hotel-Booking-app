@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+
 }
 
 .listWrapper {
@@ -20,7 +21,11 @@
   top: 10px;
   height: max-content;
 }
-
+.myinput{
+  color: gray;
+  background-color: lightgray;
+  cursor: not-allowed;
+}
 .lsTitle{
   font-size: 20px;
   color: #555;
